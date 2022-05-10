@@ -1,0 +1,32 @@
+type: map
+mapping:
+  "concepts": &unit
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          "name":
+            type: str
+            required: yes
+            unique: yes
+          "desc":
+            type: str
+          "url":
+            type: str
+          "details":
+            type: str
+          "acronym":
+            type: str
+          "grok":
+            type: bool
+          "anki":
+            type: bool
+          "aka":
+            type: seq
+            sequence:
+              - type: str
+          "deps":
+            type: seq
+            sequence:
+              - type: str
+  "implementations": *unit

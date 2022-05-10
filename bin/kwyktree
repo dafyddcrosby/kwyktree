@@ -1,0 +1,41 @@
+#!/bin/env ruby
+require "yaml"
+require "ruby-graphviz"
+require "pathname"
+require_relative "../lib/kwyktree"
+
+nodes = {}
+ARGV.each do |f|
+  if File.exist? f
+    y = YAML.load_file f
+    cluster = Pathname.new(f).basename.to_s.gsub('.yaml','')
+    nodes[cluster] = []
+    y['concepts'].each do |u|
+      nodes[cluster] << KwykTree::Concept.new(u)
+    end if y['concepts']
+    y['implementations'].each do |u|
+      nodes[cluster] << KwykTree::Implementation.new(u)
+    end if y['implementations']
+  end
+  pp nodes
+end
+pp nodes
+
+g = GraphViz.digraph("kwyktree")
+nodes.each do |k, nodelist|
+  nodelist.each do |n|
+    n.deps.each do |d|
+      g.add_edges d, n.graphviz_id
+    end
+  end
+end
+nodes.each do |k, nodelist|
+  nodelist.each do |n|
+    g.subgraph("cluster_#{k}", label: k) do |sg|
+      sg.add_nodes n.graphviz_id, n.graphviz_attributes
+    end
+  end
+end
+
+g.output dot: "kwyktree.dot"
+g.output svg: "kwyktree.svg"
