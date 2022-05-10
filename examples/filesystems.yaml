@@ -1,0 +1,36 @@
+concepts:
+  - name: "filesystems" 
+    deps: 
+      - "concept.operating_systems"
+  - name: "filesystem_page_cache" 
+    deps: 
+      - "concept.filesystems"
+  - name: "filesystem_paging" 
+    deps: 
+      - "concept.filesystem_page_cache"
+  - name: "inode" 
+    deps: 
+      - "concept.filesystems"
+  - name: "symbolic_link" 
+    deps: 
+      - "concept.filesystems"
+  - name: "hard_link" 
+    deps: 
+      - "concept.filesystems"
+  - name: "sticky_bit" 
+    deps: 
+      - "concept.filesystems"
+  - name: "disk_partitioning" 
+    deps: 
+      - "concept.filesystems"
+  - name: "master_boot_record" 
+    deps: 
+      - "concept.disk_partitioning"
+implementations:
+  - name: "fuse" 
+    deps: 
+      - "concept.filesystems"
+  - name: "unix_permissions" 
+    deps: 
+      - "concept.octal_number"
+      - "concept.filesystems"
