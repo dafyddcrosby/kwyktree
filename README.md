@@ -15,7 +15,14 @@ sense](https://archive.org/details/simple-made-easy-rich-hickey-2011)).
 
 ## Running
 
+Run kwyktree over a bunch of formatted YAML files (see the example and schema for more details)
+
 ```bash
+# From rubygems
+gem install kwyktree
+kwyktree *.yaml
+
+# From git source
 git clone https://github.com/dafyddcrosby/kwyktree.git
 bundle install
 bundle exec bin/kwyktree examples/filesystems.yaml
