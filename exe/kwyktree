@@ -1,4 +1,6 @@
 #!/bin/env ruby
+# frozen_string_literal: true
+
 require "yaml"
 require "ruby-graphviz"
 require "pathname"
@@ -8,21 +10,21 @@ nodes = {}
 ARGV.each do |f|
   if File.exist? f
     y = YAML.load_file f
-    cluster = Pathname.new(f).basename.to_s.gsub('.yaml','')
+    cluster = Pathname.new(f).basename.to_s.gsub(".yaml", "")
     nodes[cluster] = []
-    y['concepts'].each do |u|
+    y["concepts"]&.each do |u|
       nodes[cluster] << KwykTree::Concept.new(u)
-    end if y['concepts']
-    y['implementations'].each do |u|
+    end
+    y["implementations"]&.each do |u|
       nodes[cluster] << KwykTree::Implementation.new(u)
-    end if y['implementations']
+    end
   end
   pp nodes
 end
 pp nodes
 
 g = GraphViz.digraph("kwyktree")
-nodes.each do |k, nodelist|
+nodes.each do |_k, nodelist|
   nodelist.each do |n|
     n.deps.each do |d|
       g.add_edges d, n.graphviz_id

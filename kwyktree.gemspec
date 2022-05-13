@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Know-What-You-Know Tree"
   spec.description   = spec.summary
   spec.homepage      = "https://daveops.net"
-  spec.required_ruby_version = ">= 2.5.0"
+  spec.required_ruby_version = ">= 2.7.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
 
@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "ruby-graphviz", "~> 1.2"
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 require "ruby-graphviz"
 
 module KwykTree
   class Unit
     attr_reader :deps, :url
+
     def initialize(unit)
-      if unit['name']
-        @name = unit['name']
+      if unit["name"]
+        @name = unit["name"]
       else
         raise "unit needs a name"
       end
 
-      @details = {}
-      @details["anki"] = unit['anki'] || false
-      @details["grok"] = unit['grok'] || false
-      @desc = unit['desc'] || ""
-      @url = unit['url'] if unit['url']
-      @deps = unit['deps'] || []
-      @deps.each do |l|
-        l.downcase!
-      end
-      @title = unit['title'] || pretty_name
+      @details = {
+        "anki" => unit["anki"] || false,
+        "grok" => unit["grok"] || false
+      }
+      @desc = unit["desc"] || ""
+      @url = unit["url"] if unit["url"]
+      @deps = unit["deps"] || []
+      @deps.each(&:downcase!)
+      @title = unit["title"] || pretty_name
     end
 
     def type
@@ -32,7 +34,7 @@ module KwykTree
     end
 
     def graphviz_id
-      "#{type}.#{@name.downcase.tr(' ', '_')}"
+      "#{type}.#{@name.downcase.tr(" ", "_")}"
     end
 
     def graphviz_attributes
@@ -58,7 +60,7 @@ module KwykTree
 
     def graphviz_details
       details_bar = ""
-      details = ""
+      details = String.new
       if @details["grok"] != true
         details_bar = "|"
         details << 'grok: false\\n'

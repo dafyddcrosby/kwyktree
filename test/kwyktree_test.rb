@@ -5,12 +5,12 @@ require "test_helper"
 class KwykTreeTest < Minitest::Test
   def setup
     @units = [
-      [::KwykTree::Concept.new('name' => 'foo'), {
-        id: 'concept.foo',
+      [::KwykTree::Concept.new("name" => "foo"), {
+        id: "concept.foo",
         label: '{Foo|grok: false\nanki: false\n}'
       }],
-      [::KwykTree::Implementation.new('name' => 'bad_brains'), {
-        id: 'implementation.bad_brains',
+      [::KwykTree::Implementation.new("name" => "bad_brains"), {
+        id: "implementation.bad_brains",
         label: '{Bad brains|grok: false\nanki: false\n}'
       }]
     ]
