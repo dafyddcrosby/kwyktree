@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kwyktree (0.1.0)
+    kwyktree (0.2.0)
       ruby-graphviz (~> 1.2)
 
 GEM
@@ -9,6 +9,7 @@ GEM
   specs:
     ast (2.4.2)
     coderay (1.1.3)
+    dc-kwalify (1.0.0)
     ffi (1.15.5)
     formatador (1.1.0)
     guard (2.18.0)
@@ -24,7 +25,6 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    kwalify (0.7.2)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -70,9 +70,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dc-kwalify (~> 1.0.0)
   guard
   guard-minitest
-  kwalify (= 0.7.2)
   kwyktree!
   minitest (~> 5.0)
   rake (~> 13.0)
