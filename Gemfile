@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 gemspec
 
-group :development do
+group :development, optional: true do
   gem "dc-kwalify", "~> 1.0.0"
   gem "guard"
   gem "guard-minitest"
