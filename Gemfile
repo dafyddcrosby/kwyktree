@@ -5,12 +5,6 @@ gemspec
 
 group :development, optional: true do
   gem "dc-kwalify", "~> 1.0.0"
-  gem "dc-rubocop"
-  gem "guard"
+  gem "dc-devtools"
   gem "guard-minitest"
-  gem "minitest", "~> 5.0"
-  gem "rake", "~> 13.0"
-  gem "rubocop", "~> 1.7"
-  gem "rubocop-minitest"
-  gem "rubocop-rake"
 end
