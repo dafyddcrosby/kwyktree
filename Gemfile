@@ -6,5 +6,4 @@ gemspec
 group :development, optional: true do
   gem "dc-devtools", "~> 0.1"
   gem "dc-kwalify", "~> 1.0.0"
-  gem "guard-minitest"
 end
