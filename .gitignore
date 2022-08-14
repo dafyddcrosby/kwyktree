@@ -10,3 +10,4 @@
 kwyktree.dot
 kwyktree.svg
 *.gem
+Gemfile.lock
