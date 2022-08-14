@@ -31,7 +31,7 @@ nodes.each do |_k, nodelist|
     end
   end
 end
-nodes.each do |k, nodelist|
+nodes.each do |k, nodelist| # rubocop:disable Style/CombinableLoops
   nodelist.each do |n|
     g.subgraph("cluster_#{k}", label: k) do |sg|
       sg.add_nodes n.graphviz_id, n.graphviz_attributes
