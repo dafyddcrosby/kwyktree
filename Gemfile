@@ -4,6 +4,6 @@ source "https://rubygems.org"
 gemspec
 
 group :development, optional: true do
-  gem "dc-devtools", "~> 0.3"
+  gem "dc-devtools", "~> 0.4"
   gem "dc-kwalify", "~> 1.0.0"
 end
