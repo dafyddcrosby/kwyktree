@@ -24,14 +24,14 @@ end
 pp nodes
 
 g = GraphViz.digraph("kwyktree")
-nodes.each do |_k, nodelist|
+nodes.each_value do |nodelist|
   nodelist.each do |n|
     n.deps.each do |d|
       g.add_edges d, n.graphviz_id
     end
   end
 end
-nodes.each do |k, nodelist| # rubocop:disable Style/CombinableLoops
+nodes.each do |k, nodelist|
   nodelist.each do |n|
     g.subgraph("cluster_#{k}", label: k) do |sg|
       sg.add_nodes n.graphviz_id, n.graphviz_attributes
